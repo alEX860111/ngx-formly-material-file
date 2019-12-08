@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-formly-material-file": [
+        "dist/ngx-formly-material-file"
+      ],
+      "ngx-formly-material-file/*": [
+        "dist/ngx-formly-material-file/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

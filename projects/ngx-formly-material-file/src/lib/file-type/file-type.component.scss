@@ -1,0 +1,18 @@
+.label {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  margin: 0.5em 0;
+}
+
+.label-error {
+  color: red;
+}
+
+formly-validation-message {
+  color: red;
+  font-size: 12px !important;
+}
+
+:host {
+  display: block;
+}

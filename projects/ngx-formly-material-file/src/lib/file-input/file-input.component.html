@@ -1,0 +1,6 @@
+<input #fileInput multiple (change)="onChange($event)" type="file">
+<div #dropzone class="dropzone">
+  <mat-icon svgIcon="fileType:fileDrop"></mat-icon>
+  <div class="dropzone-text">{{fileTypeConfig.dropzoneText}}</div>
+  <button type="button" mat-raised-button color="secondary" (click)=onBrowseFiles()>{{fileTypeConfig.browseFilesButtonText}}</button>
+</div>

@@ -1,0 +1,17 @@
+<div [ngClass]="{'label': true, 'label-error': field.formControl.touched && !field.formControl.valid}">
+  {{field.templateOptions.label}}
+  <ng-container *ngIf="field.templateOptions.required">*</ng-container>
+</div>
+
+<app-file-input (selectFiles)="onSelectFiles($event)"></app-file-input>
+
+<div *ngIf="!field.formControl.touched || field.formControl.valid" class="label">{{field.templateOptions.description}}</div>
+<ng-container *ngIf="field.formControl.touched">
+  <formly-validation-message [field]="field"></formly-validation-message>
+</ng-container>
+
+<mat-list>
+  <ng-container *ngFor="let subfield of field.fieldGroup; index as i">
+    <app-file-upload [field]="subfield" [uploadUrl]="field.templateOptions.uploadUrl" (deleteFile)="onDeleteFile(i)"></app-file-upload>
+  </ng-container>
+</mat-list>

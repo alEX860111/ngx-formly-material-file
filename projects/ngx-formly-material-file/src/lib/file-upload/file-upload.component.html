@@ -1,0 +1,18 @@
+<mat-list-item>
+  <mat-icon mat-list-icon [svgIcon]="fileIcon"></mat-icon>
+  <div mat-line>
+    <div class="file">
+      <div class="fileinfo">
+        <div class="filename">{{file.name}}</div>
+        <div class="filesize">{{file.size | fileSize}}</div>
+      </div>
+      <div>
+        <button mat-icon-button [matTooltip]="fileTypeConfig.removeFileTooltip" (click)="removeFile()">
+          <mat-icon svgIcon="fileType:fileRemove"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <mat-progress-bar *ngIf="showProgressBar" matLine mode="determinate" [value]="progress"></mat-progress-bar>
+  <formly-validation-message matLine [field]="field"></formly-validation-message>
+</mat-list-item>

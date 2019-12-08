@@ -25,7 +25,12 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@fortawesome/fontawesome-free/svgs",
+                "output": "/assets/svgs/"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -67,7 +72,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-formly-material-extensions:build"
+            "browserTarget": "ngx-formly-material-extensions:build",
+            "proxyConfig": "proxy-conf.json"
           },
           "configurations": {
             "production": {
@@ -90,7 +96,12 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@fortawesome/fontawesome-free/svgs",
+                "output": "/assets/svgs/"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -121,6 +132,41 @@
             "production": {
               "devServerTarget": "ngx-formly-material-extensions:serve:production"
             }
+          }
+        }
+      }
+    },
+    "ngx-formly-material-file": {
+      "projectType": "library",
+      "root": "projects/ngx-formly-material-file",
+      "sourceRoot": "projects/ngx-formly-material-file/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-formly-material-file/tsconfig.lib.json",
+            "project": "projects/ngx-formly-material-file/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-formly-material-file/src/test.ts",
+            "tsConfig": "projects/ngx-formly-material-file/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-formly-material-file/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-formly-material-file/tsconfig.lib.json",
+              "projects/ngx-formly-material-file/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

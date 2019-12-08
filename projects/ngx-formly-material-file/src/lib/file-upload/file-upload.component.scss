@@ -1,0 +1,28 @@
+.file {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fileinfo {
+  overflow: hidden;
+}
+
+.filename {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filesize {
+  margin-bottom: 0.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+formly-validation-message {
+  color: red;
+  font-size: 12px !important;
+}

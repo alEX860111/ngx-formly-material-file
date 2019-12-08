@@ -1,0 +1,20 @@
+input {
+  display: none;
+}
+
+.dropzone {
+  border: 2px dashed grey;
+  border-radius: 4px;
+  text-align: center;
+  padding: 30px;
+}
+
+.is-dragover {
+  background-color: ghostwhite;
+}
+
+.dropzone-text {
+  margin: 1em;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+}
