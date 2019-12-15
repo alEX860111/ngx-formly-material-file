@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { MatTooltipModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormlyModule } from '@ngx-formly/core';
@@ -12,6 +12,7 @@ import { FileSizePipe } from './file-size/file-size.pipe';
 import { FileTypeConfig, FILE_TYPE_CONFIG } from './file-type-config';
 import { FileTypeComponent } from './file-type/file-type.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -33,11 +34,18 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 })
 export class FileTypeModule {
 
-  constructor(@Optional() @SkipSelf() parentModule: FileTypeModule) {
+  constructor(
+    @Optional() @SkipSelf() parentModule: FileTypeModule,
+    matIconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer) {
     if (parentModule) {
       throw new Error(
         'FileTypeModule is already loaded. Import it in the AppModule only');
     }
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileDrop', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/file_copy-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'file', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_done-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileUpload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_upload-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/clear-24px.svg'));
   }
 
   static forRoot(config: FileTypeConfig): ModuleWithProviders {

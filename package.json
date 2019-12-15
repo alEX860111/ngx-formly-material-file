@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-lib": "ng build ngx-formly-material-file && cp -r projects/ngx-formly-material-file/src/assets dist/ngx-formly-material-file/assets",
+    "build-lib:watch": "ng build ngx-formly-material-file --watch",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
