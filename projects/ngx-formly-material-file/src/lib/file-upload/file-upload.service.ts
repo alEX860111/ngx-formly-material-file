@@ -9,8 +9,8 @@ export class FileUploadService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public upload(file: File, url: string): Observable<FileUploadState> {
-    const request: HttpRequest<FormData> = this.createRequest(file, url);
+  public upload(file: File, url: string, paramName = 'file'): Observable<FileUploadState> {
+    const request: HttpRequest<FormData> = this.createRequest(file, url, paramName);
 
     return this.http.request(request).pipe(
       filter(this.isSupportedEvent),
@@ -21,9 +21,9 @@ export class FileUploadService {
     );
   }
 
-  private createRequest(file: File, url: string): HttpRequest<FormData> {
+  private createRequest(file: File, url: string, paramName: string): HttpRequest<FormData> {
     const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
+    formData.append(paramName, file, file.name);
 
     return new HttpRequest('POST', url, formData, {
       reportProgress: true

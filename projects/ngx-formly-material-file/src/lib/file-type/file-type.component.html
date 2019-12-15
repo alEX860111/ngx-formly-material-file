@@ -12,6 +12,6 @@
 
 <mat-list>
   <ng-container *ngFor="let subfield of field.fieldGroup; index as i">
-    <app-file-upload [field]="subfield" [uploadUrl]="field.templateOptions.uploadUrl" (deleteFile)="onDeleteFile(i)"></app-file-upload>
+    <app-file-upload [field]="subfield" [uploadUrl]="field.templateOptions.uploadUrl" [paramName]="field.templateOptions.paramName" (deleteFile)="onDeleteFile(i)"></app-file-upload>
   </ng-container>
 </mat-list>

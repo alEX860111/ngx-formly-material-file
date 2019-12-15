@@ -20,6 +20,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   @Input()
   uploadUrl: string;
 
+  @Input()
+  paramName: string;
+
   @Output()
   deleteFile = new EventEmitter<any>();
 
@@ -51,7 +54,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
 
     setTimeout(() => this.field.formControl.updateValueAndValidity(), 0);
 
-    this.progessSubscription = this.uploadService.upload(this.file, this.uploadUrl)
+    this.progessSubscription = this.uploadService.upload(this.file, this.uploadUrl, this.paramName)
       .subscribe(
         uploadState => {
           this.progress = uploadState.progress;

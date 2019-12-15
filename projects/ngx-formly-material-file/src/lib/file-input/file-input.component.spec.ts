@@ -1,9 +1,17 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material';
+import { FileTypeModule } from '../file-type.module';
 import { FileInputComponent } from './file-input.component';
-import { FILE_TYPE_CONFIG } from '../file-type-config';
 import { SelectedFile } from './selected-file';
+
+@Component({
+  selector: 'mat-icon',
+  template: '<span></span>'
+})
+class MockMatIconComponent {
+  @Input() svgIcon: any;
+}
 
 describe('FileInputComponent', () => {
 
@@ -13,10 +21,16 @@ describe('FileInputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MatIconModule, MatButtonModule],
-      declarations: [FileInputComponent],
-      providers: [{ provide: FILE_TYPE_CONFIG, useValue: {} }]
-
+      imports: [FileTypeModule.forRoot({})]
+    }).overrideModule(MatIconModule, {
+      remove: {
+        declarations: [MatIcon],
+        exports: [MatIcon]
+      },
+      add: {
+        declarations: [MockMatIconComponent],
+        exports: [MockMatIconComponent]
+      }
     });
     fixture = TestBed.createComponent(FileInputComponent);
     component = fixture.componentInstance;
@@ -32,7 +46,7 @@ describe('FileInputComponent', () => {
     fileList.length = files.length;
     fileList.item.and.returnValue(files[0]);
 
-    const event = { target: { files: fileList }};
+    const event = { target: { files: fileList } };
     component.selectFiles.subscribe(selectedFiles => {
       const expectedSelectedFiles: SelectedFile[] = [{
         file: files[0]

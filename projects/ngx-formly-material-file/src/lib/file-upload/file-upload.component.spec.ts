@@ -1,18 +1,21 @@
+import { Component, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
-import { MatTooltipModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { FormlyModule } from '@ngx-formly/core';
+import { MatIcon, MatIconModule } from '@angular/material';
 import { of } from 'rxjs';
-import { FileSizePipe } from '../file-size/file-size.pipe';
-import { FILE_TYPE_CONFIG } from '../file-type-config';
+import { SelectedFile } from '../file-input/selected-file';
+import { FileTypeModule } from '../file-type.module';
 import { FileUploadState } from './file-upload-state';
 import { FileUploadComponent } from './file-upload.component';
 import { FileUploadService } from './file-upload.service';
-import { SelectedFile } from '../file-input/selected-file';
+
+@Component({
+  selector: 'mat-icon',
+  template: '<span></span>'
+})
+class MockMatIconComponent {
+  @Input() svgIcon: any;
+}
 
 describe('FileUploadComponent', () => {
 
@@ -25,11 +28,16 @@ describe('FileUploadComponent', () => {
   beforeEach(async(() => {
     fileUploadService = jasmine.createSpyObj('fileUploadService', ['upload']);
     TestBed.configureTestingModule({
-      imports: [FormlyModule, MatIconModule, MatButtonModule, MatProgressBarModule, MatTooltipModule, MatListModule],
-      declarations: [FileUploadComponent, FileSizePipe],
-      providers: [
-        { provide: FILE_TYPE_CONFIG, useValue: {} }
-      ]
+      imports: [FileTypeModule.forRoot({})]
+    }).overrideModule(MatIconModule, {
+      remove: {
+        declarations: [MatIcon],
+        exports: [MatIcon]
+      },
+      add: {
+        declarations: [MockMatIconComponent],
+        exports: [MockMatIconComponent]
+      }
     }).overrideProvider(FileUploadService, { useValue: fileUploadService })
       .compileComponents();
   }));
