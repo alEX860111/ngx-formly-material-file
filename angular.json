@@ -33,7 +33,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "./projects/ngx-formly-material-file/src/assets",
+                "input": "./projects/ngx-formly-material-file/src/assets/svgs",
                 "output": "/assets/svgs/"
               }
             ],
@@ -109,7 +109,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "./projects/ngx-formly-material-file/src/assets",
+                "input": "./projects/ngx-formly-material-file/src/assets/svgs",
                 "output": "/assets/svgs/"
               }
             ],
