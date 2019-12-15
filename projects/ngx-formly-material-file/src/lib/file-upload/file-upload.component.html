@@ -14,5 +14,7 @@
     </div>
   </div>
   <mat-progress-bar *ngIf="showProgressBar" matLine mode="determinate" [value]="progress"></mat-progress-bar>
-  <formly-validation-message matLine [field]="field"></formly-validation-message>
+  <mat-error matLine class="mat-error" role="alert">
+    <formly-validation-message [field]="field"></formly-validation-message>
+  </mat-error>
 </mat-list-item>
