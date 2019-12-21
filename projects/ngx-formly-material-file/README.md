@@ -2,23 +2,40 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project ngx-formly-material-file` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-formly-material-file`.
-> Note: Don't forget to add `--project ngx-formly-material-file` or else it will be added to the default project in your `angular.json` file. 
+### Install NPM Dependencies
+Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly#quick-start) using `@ngx-formly/material` as the UI library. Finally run `npm i ngx-formly-material-file`.
 
-## Build
+### Configure the App Module
+```typescript
+...
+import { FileTypeComponent, FileTypeModule } from 'ngx-formly-material-file';
+...
 
-Run `ng build ngx-formly-material-file` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ngx-formly-material-file`, go to the dist folder `cd dist/ngx-formly-material-file` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-formly-material-file` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    ...
+    FileTypeModule.forRoot({}),
+    FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'maxFilenameLength', message: '2do' },
+        { name: 'minFilenameLength', message: '2do' },
+        { name: 'fileExtension', message: '2do' },
+        { name: 'filesize', message: '2do' },
+        { name: 'filenameForbiddenCharacters', message: '2do' },
+        { name: 'minFiles', message: '2do' },
+        { name: 'maxFiles', message: '2do' },
+        { name: 'totalFilesize', message: '2do' },
+        { name: 'uploadError', message: '2do' }
+      ],
+      types: [
+        { name: 'file', component: FileTypeComponent },
+      ],
+    })
+    ...
+  ],
+  ...
+})
+export class AppModule {}
+```
