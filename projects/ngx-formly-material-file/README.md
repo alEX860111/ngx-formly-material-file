@@ -48,7 +48,7 @@ export class AppModule {}
    "output":"/assets/svgs/"
 }
 ```
-### Using custom icons
+### Custom icons
 You can replace the default [material icons](https://material.io/resources/icons/?style=baseline) by using the `MatIconRegistry`. Here is an example:
 ```typescript
 ...
