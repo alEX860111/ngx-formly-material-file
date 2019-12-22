@@ -39,6 +39,15 @@ import { FileTypeComponent, FileTypeModule } from 'ngx-formly-material-file';
 })
 export class AppModule {}
 ```
+### Include the icons
+`ngx-formly-material-file` uses [material icons](https://material.io/resources/icons/?style=baseline) as a default. Add the following entry to the `assets` array in your `angular.json` to serve the icons:
+```json
+{ 
+   "glob":"**/*",
+   "input":"./node_modules/ngx-formly-material-file/assets/svgs",
+   "output":"/assets/svgs/"
+}
+```
 ### Use FileTypeComponent
 ```typescript
 import { Component } from '@angular/core';
