@@ -155,3 +155,12 @@ export const APP_LOCALE_ID = 'en-US';
 })
 export class AppModule {}
 ```
+### Labels
+The labels of the dropzone and the button as well as the tooltip of the remove-file-icon can be changed:
+```typescript
+FileTypeModule.forRoot({
+  dropzoneText: 'my custom label',
+  browseFilesButtonText: 'my custom label',
+  removeFileTooltip: 'my custom label'
+})
+```
