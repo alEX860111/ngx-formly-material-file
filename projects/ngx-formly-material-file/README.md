@@ -42,6 +42,17 @@ export const APP_LOCALE_ID = 'en-US';
 export class AppModule {}
 ```
 ### Use FileTypeComponent
+`ngx-formly-material-file` adds an array of `SelectedFile` to the form model.
+```typescript
+export class SelectedFile {
+
+  file: File;
+
+  location?: string;
+
+}
+```
+If you specify a `uploadUrl` in the `templateOptions`, the files will be uploaded using a FormData POST request. The default parameter name is `file` but it can be changed by setting `paramName` in the `templateOptions`. If the server returns a `Location` header, it will be present in the `SelectedFile`.
 ```typescript
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -108,6 +119,7 @@ export class AppModule {
 }
 ```
 ### Validation messages
+The default validation messages can be overwritten as shown in this example:
 ```typescript
 ...
 import { LOCALE_ID, NgModule } from '@angular/core';
