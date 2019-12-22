@@ -48,6 +48,19 @@ export class AppModule {}
    "output":"/assets/svgs/"
 }
 ```
+### Using custom icons
+You can replace the default [material icons](https://material.io/resources/icons/?style=baseline) by using the `MatIconRegistry`. Here is an example:
+```typescript
+...
+export class AppModule {
+  constructor(matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileDrop', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file-import.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'file', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileUpload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file-upload.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/times.svg'));
+  }
+}
+```
 ### Use FileTypeComponent
 ```typescript
 import { Component } from '@angular/core';
