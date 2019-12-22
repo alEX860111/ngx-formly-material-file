@@ -5,7 +5,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 ## Installation
 
 ### Install NPM Dependencies
-Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly#quick-start) using `@ngx-formly/material` as the UI library. Finally run `npm i ngx-formly-material-file`.
+Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly#quick-start) and use `@ngx-formly/material` as the UI library. Finally run `npm i ngx-formly-material-file`.
 
 ### Configure the App Module
 ```typescript
