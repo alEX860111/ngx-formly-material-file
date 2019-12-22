@@ -21,5 +21,5 @@ export * from './lib/validators/file-extension-error';
 export * from './lib/validators/file-validators';
 
 export * from './lib/file-type-config';
-
+export * from './lib/file-type-validation-messages';
 export * from './lib/file-type.module';

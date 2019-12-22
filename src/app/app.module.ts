@@ -8,10 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
-import { FileTypeComponent, FileTypeModule } from 'ngx-formly-material-file';
+import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngx-formly-material-file';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { APP_LOCALE_ID, ValidationMessages } from './validation-messages';
+
+export const APP_LOCALE_ID = 'en-US';
 
 @NgModule({
   imports: [
@@ -26,20 +27,11 @@ import { APP_LOCALE_ID, ValidationMessages } from './validation-messages';
       // removeFileTooltip: 'Datei entfernen'
     }),
     FormlyModule.forRoot({
-      validationMessages: [
-        { name: 'required', message: ValidationMessages.requiredValidationMessage },
-        { name: 'min', message: ValidationMessages.minValidationMessage },
-        { name: 'max', message: ValidationMessages.maxValidationMessage },
-        { name: 'maxFilenameLength', message: ValidationMessages.maxFilenameLengthMessage },
-        { name: 'minFilenameLength', message: ValidationMessages.minFilenameLengthMessage },
-        { name: 'fileExtension', message: ValidationMessages.fileExtensionMessage },
-        { name: 'filesize', message: ValidationMessages.filesizeMessage },
-        { name: 'filenameForbiddenCharacters', message: ValidationMessages.filenameForbiddenCharacters },
-        { name: 'minFiles', message: ValidationMessages.minFilesMessage },
-        { name: 'maxFiles', message: ValidationMessages.maxFilesMessage },
-        { name: 'totalFilesize', message: ValidationMessages.totalFilesizeMessage },
-        { name: 'uploadError', message: ValidationMessages.uploadErrorMessage }
-      ],
+      validationMessages: new FileTypeValidationMessages(APP_LOCALE_ID).validationMessages.concat([
+        { name: 'required', message: 'This field is required' },
+        { name: 'min', message: (_, field) => `This value should be more than ${field.templateOptions.min}` },
+        { name: 'max', message: (_, field) => `This value should be less than ${field.templateOptions.max}` }
+      ]),
       types: [
         { name: 'file', component: FileTypeComponent },
       ],
@@ -52,7 +44,7 @@ import { APP_LOCALE_ID, ValidationMessages } from './validation-messages';
     AppComponent,
   ],
   bootstrap: [AppComponent],
-  providers: [ {provide: LOCALE_ID, useValue: APP_LOCALE_ID } ],
+  providers: [{ provide: LOCALE_ID, useValue: APP_LOCALE_ID }],
 })
 export class AppModule {
   constructor(matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
