@@ -2,7 +2,7 @@
   "name": "ngx-formly-material-file",
   "description": "material design file upload for ngx-formly",
   "keywords": ["material", "angular", "file", "upload", "ngx-formly"],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
