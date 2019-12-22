@@ -8,7 +8,7 @@ describe('FileUploadService', () => {
 
   const URL = '/upload';
 
-  const LOCATION = URL + '/1'
+  const LOCATION = URL + '/1';
 
   let service: FileUploadService;
 

@@ -4,7 +4,7 @@ import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 export class FileSizePipe implements PipeTransform {
 
   private static readonly OPTS = { maximumFractionDigits: 1 };
-  
+
   private static readonly KILO = 1000;
 
   constructor(@Inject(LOCALE_ID) private readonly localeId: string) { }
