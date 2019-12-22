@@ -1,6 +1,6 @@
 # NgxFormlyMaterialFile
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+This library provides a material design file upload for [ngx-formly](https://github.com/ngx-formly/ngx-formly).
 
 ## Installation
 
