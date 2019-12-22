@@ -6,40 +6,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Install NPM Dependencies
 Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly#quick-start) and use `@ngx-formly/material` as the UI library. Finally run `npm i ngx-formly-material-file`.
-
-### Configure the App Module
-```typescript
-...
-import { FileTypeComponent, FileTypeModule } from 'ngx-formly-material-file';
-...
-
-@NgModule({
-  imports: [
-    ...
-    FileTypeModule.forRoot({}),
-    FormlyModule.forRoot({
-      validationMessages: [
-        { name: 'maxFilenameLength', message: '2do' },
-        { name: 'minFilenameLength', message: '2do' },
-        { name: 'fileExtension', message: '2do' },
-        { name: 'filesize', message: '2do' },
-        { name: 'filenameForbiddenCharacters', message: '2do' },
-        { name: 'minFiles', message: '2do' },
-        { name: 'maxFiles', message: '2do' },
-        { name: 'totalFilesize', message: '2do' },
-        { name: 'uploadError', message: '2do' }
-      ],
-      types: [
-        { name: 'file', component: FileTypeComponent },
-      ],
-    })
-    ...
-  ],
-  ...
-})
-export class AppModule {}
-```
-### Include the icons
+### Icons
 `ngx-formly-material-file` uses [material icons](https://material.io/resources/icons/?style=baseline) as a default. Add the following entry to the `assets` array in your `angular.json` to serve the icons:
 ```json
 { 
@@ -48,18 +15,31 @@ export class AppModule {}
    "output":"/assets/svgs/"
 }
 ```
-### Custom icons
-You can replace the default [material icons](https://material.io/resources/icons/?style=baseline) by using the `MatIconRegistry`. Here is an example:
+### Configure the App Module
 ```typescript
 ...
-export class AppModule {
-  constructor(matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    matIconRegistry.addSvgIconInNamespace('fileType', 'fileDrop', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file-import.svg'));
-    matIconRegistry.addSvgIconInNamespace('fileType', 'file', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file.svg'));
-    matIconRegistry.addSvgIconInNamespace('fileType', 'fileUpload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file-upload.svg'));
-    matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/times.svg'));
-  }
-}
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngx-formly-material-file';
+...
+
+export const APP_LOCALE_ID = 'en-US';
+
+@NgModule({
+  imports: [
+    ...
+    FileTypeModule.forRoot({}),
+    FormlyModule.forRoot({
+      validationMessages: new FileTypeValidationMessages(APP_LOCALE_ID).validationMessages,
+      types: [
+        { name: 'file', component: FileTypeComponent },
+      ],
+    })
+    ...
+  ],
+  ...
+  providers: [{ provide: LOCALE_ID, useValue: APP_LOCALE_ID }, ...],
+})
+export class AppModule {}
 ```
 ### Use FileTypeComponent
 ```typescript
@@ -112,5 +92,54 @@ export class AppComponent {
   ];
 
 }
+```
+## Customization
+### Icons
+You can replace the default [material icons](https://material.io/resources/icons/?style=baseline) by using the `MatIconRegistry`. Here is an example:
+```typescript
+...
+export class AppModule {
+  constructor(matIconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileDrop', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file-import.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'file', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileUpload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/file-upload.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/solid/times.svg'));
+  }
+}
+```
+### Validation messages
+```typescript
+...
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngx-formly-material-file';
+...
 
+export const APP_LOCALE_ID = 'en-US';
+
+@NgModule({
+  imports: [
+    ...
+    FileTypeModule.forRoot({}),
+    FormlyModule.forRoot({
+      validationMessages: new FileTypeValidationMessages(APP_LOCALE_ID).validationMessages.concat([
+        { name: 'maxFilenameLength', message: 'my custom message' },
+        { name: 'minFilenameLength', message: 'my custom message' },
+        { name: 'fileExtension', message: 'my custom message' },
+        { name: 'filesize', message: '2do' },
+        { name: 'filenameForbiddenCharacters', message: 'my custom message' },
+        { name: 'minFiles', message: 'my custom message' },
+        { name: 'maxFiles', message: '2do' },
+        { name: 'totalFilesize', message: 'my custom message' },
+        { name: 'uploadError', message: 'my custom message' }
+      ]),
+      types: [
+        { name: 'file', component: FileTypeComponent },
+      ],
+    })
+    ...
+  ],
+  ...
+  providers: [{ provide: LOCALE_ID, useValue: APP_LOCALE_ID }, ...],
+})
+export class AppModule {}
 ```
