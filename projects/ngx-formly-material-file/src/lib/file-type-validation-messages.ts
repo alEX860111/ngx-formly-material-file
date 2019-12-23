@@ -48,7 +48,10 @@ export class FileTypeValidationMessages {
       },
       {
         name: 'filenameForbiddenCharacters', message: (err: FilenameForbiddenCharactersError) => {
-          return `The filename contains forbidden characters: ${err.actualForbiddenCharacters}`;
+          const actualForbiddenCharacters = err.actualForbiddenCharacters
+          .map(char => `'${char}'`)
+          .join(', ');
+          return `The filename contains forbidden characters: ${actualForbiddenCharacters}`;
         }
       },
       {

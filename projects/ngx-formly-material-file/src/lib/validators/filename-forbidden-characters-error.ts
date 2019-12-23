@@ -1,7 +1,7 @@
 export interface FilenameForbiddenCharactersError {
 
-  forbiddenCharacters: string;
+  forbiddenCharacters: string[];
 
-  actualForbiddenCharacters: string;
+  actualForbiddenCharacters: string[];
 
 }

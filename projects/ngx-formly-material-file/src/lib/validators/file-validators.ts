@@ -27,7 +27,7 @@ export class FileValidators {
     return validator.validate.bind(validator);
   }
 
-  static filenameForbiddenCharacters(forbiddenCharacters: string): ValidatorFn {
+  static filenameForbiddenCharacters(forbiddenCharacters: string[]): ValidatorFn {
     const validator = new FilenameForbiddenCharactersValidator(forbiddenCharacters);
     return validator.validate.bind(validator);
   }

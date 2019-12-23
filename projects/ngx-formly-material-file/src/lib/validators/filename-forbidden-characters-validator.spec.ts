@@ -5,7 +5,7 @@ import { FilenameForbiddenCharactersValidator } from './filename-forbidden-chara
 
 describe('FilenameForbiddenCharactersValidator', () => {
 
-  const FORBIDDEN_CHARACTERS = 'xy';
+  const FORBIDDEN_CHARACTERS = ['x', 'y'];
 
   let validator: FilenameForbiddenCharactersValidator;
 
@@ -34,7 +34,7 @@ describe('FilenameForbiddenCharactersValidator', () => {
     const control = new FormControl(selectedFile);
     const error: FilenameForbiddenCharactersError = {
       forbiddenCharacters: FORBIDDEN_CHARACTERS,
-      actualForbiddenCharacters: 'x'
+      actualForbiddenCharacters: ['x']
     };
     expect(validator.validate(control)).toEqual({ filenameForbiddenCharacters: error });
   });
@@ -45,9 +45,13 @@ describe('FilenameForbiddenCharactersValidator', () => {
     const control = new FormControl(selectedFile);
     const error: FilenameForbiddenCharactersError = {
       forbiddenCharacters: FORBIDDEN_CHARACTERS,
-      actualForbiddenCharacters: 'xy'
+      actualForbiddenCharacters: FORBIDDEN_CHARACTERS
     };
     expect(validator.validate(control)).toEqual({ filenameForbiddenCharacters: error });
+  });
+
+  it('should throw an error if char is too long', () => {
+    expect(() => new FilenameForbiddenCharactersValidator(['xy'])).toThrowError();
   });
 
 });
