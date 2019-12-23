@@ -21,11 +21,12 @@ export const APP_LOCALE_ID = 'en-US';
     BrowserModule,
     CommonModule,
     ReactiveFormsModule,
-    FileTypeModule.forRoot({
-      // dropzoneText: 'Dateien hier ablegen oder',
-      // browseFilesButtonText: 'Dateien durchsuchen',
-      // removeFileTooltip: 'Datei entfernen'
-    }),
+    FileTypeModule.forRoot(),
+    // FileTypeModule.forRoot({
+    //   dropzoneText: 'Dateien hier ablegen oder',
+    //   browseFilesButtonText: 'Dateien durchsuchen',
+    //   removeFileTooltip: 'Datei entfernen'
+    // }),
     FormlyModule.forRoot({
       validationMessages: new FileTypeValidationMessages(APP_LOCALE_ID).validationMessages.concat([
         { name: 'required', message: 'This field is required' },

@@ -29,7 +29,7 @@ export const APP_LOCALE_ID = 'en-US';
 @NgModule({
   imports: [
     ...
-    FileTypeModule.forRoot({}),
+    FileTypeModule.forRoot(),
     FormlyModule.forRoot({
       validationMessages: new FileTypeValidationMessages(APP_LOCALE_ID).validationMessages,
       types: [
@@ -133,7 +133,7 @@ export const APP_LOCALE_ID = 'en-US';
 @NgModule({
   imports: [
     ...
-    FileTypeModule.forRoot({}),
+    FileTypeModule.forRoot(),
     FormlyModule.forRoot({
       validationMessages: new FileTypeValidationMessages(APP_LOCALE_ID).validationMessages.concat([
         { name: 'maxFilenameLength', message: 'my custom message' },
