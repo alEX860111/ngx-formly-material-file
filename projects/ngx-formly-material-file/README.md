@@ -1,6 +1,8 @@
 # NgxFormlyMaterialFile
 
-This library provides a material design file upload for [ngx-formly](https://github.com/ngx-formly/ngx-formly).
+This library provides a material design file upload for [ngx-formly](https://github.com/ngx-formly/ngx-formly). `ngx-formly-material-file` supports drag and drop and ships with various validators.
+
+![ngx-formly-material-file demo](demo/ngx-formly-material-file.gif)
 
 ## Installation
 

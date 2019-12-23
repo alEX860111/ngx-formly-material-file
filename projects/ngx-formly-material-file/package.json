@@ -1,7 +1,16 @@
 {
   "name": "ngx-formly-material-file",
   "description": "material design file upload for ngx-formly",
-  "keywords": ["material", "angular", "file", "upload", "ngx-formly"],
+  "keywords": [
+    "material",
+    "angular",
+    "file",
+    "upload",
+    "ngx-formly",
+    "form",
+    "drag and drop",
+    "validation"
+  ],
   "version": "0.0.4",
   "homepage": "https://github.com/alEX860111/ngx-formly-material-file",
   "bugs": {
