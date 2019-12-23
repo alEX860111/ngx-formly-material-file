@@ -46,7 +46,7 @@ export class AppModule {}
 ### Use FileTypeComponent
 `ngx-formly-material-file` adds an array of `SelectedFile` to the form model.
 ```typescript
-export class SelectedFile {
+export interface SelectedFile {
 
   file: File;
 

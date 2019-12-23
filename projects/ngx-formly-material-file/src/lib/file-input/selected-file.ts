@@ -1,4 +1,4 @@
-export class SelectedFile {
+export interface SelectedFile {
 
   file: File;
 
