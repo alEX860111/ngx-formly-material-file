@@ -1,6 +1,7 @@
 {
   "name": "ngx-formly-material-file",
   "description": "material design file upload for ngx-formly",
+  "license": "MIT",
   "keywords": [
     "material",
     "angular",
