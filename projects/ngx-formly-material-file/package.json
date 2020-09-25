@@ -18,11 +18,18 @@
     "url": "https://github.com/alEX860111/ngx-formly-material-file/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14",
-    "@angular/cdk": "~8.2.3",
-    "@angular/material": "^8.2.3",
-    "@ngx-formly/core": "^5.5.6",
-    "@ngx-formly/material": "^5.5.6"
+    "@angular/common": "~10.1.3",
+    "@angular/core": "~10.1.3",
+    "@angular/cdk": "~10.2.2",
+    "@angular/material": "^10.2.2",
+    "@ngx-formly/core": "^5.10.1",
+    "@ngx-formly/material": "^5.10.1"
+  },
+  "devDependencies": {
+    "npm-check-updates": "9.0.2"
+  },
+  "scripts": {
+    "lib-chk": "npx ncu",
+    "lib-chk-up": "npx ncu -u"
   }
 }
