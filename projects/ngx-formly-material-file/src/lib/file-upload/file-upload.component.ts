@@ -23,12 +23,25 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   @Input()
   paramName: string;
 
+  @Input()
+  numFile: number;
+
+  @Input()
+  validators: number;
+
+  @Input()
+  uploadOnError: boolean = true;
+
+  @Input()
+  uploadMax: number = 15;
+
   @Output()
   deleteFile = new EventEmitter<any>();
 
   progress = 0;
 
   uploadError: string;
+  hasUploadOnError: boolean = false;
 
   file: File;
 
@@ -42,11 +55,25 @@ export class FileUploadComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.fileIcon = this.uploadUrl ? 'fileType:fileUpload' : 'fileType:file';
+    this.hasUploadOnError = false;
 
     const selectedFile: SelectedFile = this.field.formControl.value;
     this.file = selectedFile.file;
 
     if (!this.field.formControl.valid || !this.uploadUrl) {
+      return;
+    }
+
+    if (this.uploadOnError === false && (this.numFile + 1) > this.uploadMax) {
+      // TODO Error icon
+      // this.fileIcon = 'fileType:file';
+      this.hasUploadOnError = true;
+      // this.uploadError = "Error";
+      setTimeout(() => {
+        this.removeFile();
+        this.field.formControl.updateValueAndValidity();
+      }, 0);
+      // this.validateUpload();
       return;
     }
 
@@ -60,6 +87,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
           this.progress = uploadState.progress;
           if (this.progress === 100) {
             this.field.formControl.value.location = uploadState.location;
+            this.field.formControl.value.data = uploadState.data;
           }
         },
         error => {

@@ -42,7 +42,7 @@ export class FileUploadService {
 
     if (event.type === HttpEventType.Response) {
       if (event.ok) {
-        return { progress: 100, location: event.headers.get('Location') };
+        return { progress: 100, location: event.headers.get('Location'), data: event.body };
       } else {
         throw event.statusText;
       }

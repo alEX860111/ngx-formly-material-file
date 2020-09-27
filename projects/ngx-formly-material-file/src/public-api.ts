@@ -6,6 +6,8 @@ export * from './lib/file-input/selected-file';
 
 export * from './lib/file-type/file-type.component';
 
+export * from './lib/file-size/file-size.pipe';
+
 export * from './lib/list-validators/max-files-error';
 export * from './lib/list-validators/min-files-error';
 export * from './lib/list-validators/total-filesize-error';

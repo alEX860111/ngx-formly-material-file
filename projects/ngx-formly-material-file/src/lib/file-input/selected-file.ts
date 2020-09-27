@@ -4,4 +4,6 @@ export interface SelectedFile {
 
   location?: string;
 
+  data?: any;
+
 }
