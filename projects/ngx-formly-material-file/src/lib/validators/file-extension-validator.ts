@@ -16,6 +16,11 @@ export class FileExtensionValidator {
       return null;
     }
 
+    // Skip if have wildcard
+    if (this.uppercasedAllowedFileExtensions.includes('*')) {
+      return null;
+    }
+
     const selectedFile: SelectedFile = control.value;
     const file: File = selectedFile.file;
 
