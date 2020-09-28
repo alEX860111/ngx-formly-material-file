@@ -48,6 +48,8 @@ export class FileTypeModule {
     matIconRegistry.addSvgIconInNamespace('fileType', 'file', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_done-24px.svg'));
     matIconRegistry.addSvgIconInNamespace('fileType', 'fileUpload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_upload-24px.svg'));
     matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/clear-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileDownload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_download-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileUploadError', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_off-24px.svg'));
   }
 
   static forRoot(config: FileTypeConfig = {}): ModuleWithProviders<FileTypeModule> {

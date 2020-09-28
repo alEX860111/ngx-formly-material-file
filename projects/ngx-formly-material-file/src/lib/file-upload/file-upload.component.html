@@ -6,7 +6,7 @@
         <div class="filename">{{file.name}}</div>
         <div class="filesize">{{file.size | fileSize}}</div>
       </div>
-      <div *ngIf="hasUploadOnError === false">
+      <div>
         <button mat-icon-button [matTooltip]="fileTypeConfig.removeFileTooltip" (click)="removeFile()">
           <mat-icon svgIcon="fileType:fileRemove"></mat-icon>
         </button>

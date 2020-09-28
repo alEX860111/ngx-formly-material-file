@@ -41,7 +41,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   progress = 0;
 
   uploadError: string;
-  hasUploadOnError: boolean = false;
+  fakeUploadOnError: boolean = false;
 
   file: File;
 
@@ -55,33 +55,26 @@ export class FileUploadComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.fileIcon = this.uploadUrl ? 'fileType:fileUpload' : 'fileType:file';
-    this.hasUploadOnError = false;
+    this.fakeUploadOnError = false;
 
     const selectedFile: SelectedFile = this.field.formControl.value;
     this.file = selectedFile.file;
 
     if (!this.field.formControl.valid || !this.uploadUrl) {
+      this.fileIcon = 'fileType:fileUploadError';
       return;
     }
 
     if (this.uploadOnError === false && (this.numFile + 1) > this.uploadMax) {
-      // TODO Error icon
-      // this.fileIcon = 'fileType:file';
-      this.hasUploadOnError = true;
-      // this.uploadError = "Error";
-      setTimeout(() => {
-        this.removeFile();
-        this.field.formControl.updateValueAndValidity();
-      }, 0);
-      // this.validateUpload();
-      return;
+      this.fakeUploadOnError = true;
+      this.fileIcon = 'fileType:fileUploadError';
     }
 
     this.field.formControl.setAsyncValidators(this.validateUpload.bind(this));
 
     setTimeout(() => this.field.formControl.updateValueAndValidity(), 0);
 
-    this.progessSubscription = this.uploadService.upload(this.file, this.uploadUrl, this.paramName)
+    this.progessSubscription = this.uploadService.upload(this.file, this.fakeUploadOnError, this.uploadUrl, this.paramName)
       .subscribe(
         uploadState => {
           this.progress = uploadState.progress;
@@ -93,6 +86,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
         error => {
           this.uploadError = error;
           this.field.formControl.updateValueAndValidity();
+          this.fileIcon = 'fileType:fileUploadError';
         },
         () => {
           this.field.formControl.updateValueAndValidity();

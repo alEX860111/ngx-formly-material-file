@@ -9,7 +9,10 @@ export class FileUploadService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public upload(file: File, url: string, paramName = 'file'): Observable<FileUploadState> {
+  public upload(file: File, fakeUpload: boolean, url: string, paramName = 'file'): Observable<FileUploadState> {
+    if (fakeUpload) {
+      throw "Limit max files reached!";
+    }
     const request: HttpRequest<FormData> = this.createRequest(file, url, paramName);
 
     return this.http.request(request).pipe(
