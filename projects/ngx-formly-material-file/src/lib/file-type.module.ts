@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { MatTooltipModule, MatFormFieldModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -47,9 +48,11 @@ export class FileTypeModule {
     matIconRegistry.addSvgIconInNamespace('fileType', 'file', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_done-24px.svg'));
     matIconRegistry.addSvgIconInNamespace('fileType', 'fileUpload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_upload-24px.svg'));
     matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/clear-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileDownload', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_download-24px.svg'));
+    matIconRegistry.addSvgIconInNamespace('fileType', 'fileUploadError', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/cloud_off-24px.svg'));
   }
 
-  static forRoot(config: FileTypeConfig = {}): ModuleWithProviders {
+  static forRoot(config: FileTypeConfig = {}): ModuleWithProviders<FileTypeModule> {
     const actualConfig: FileTypeConfig = {
       dropzoneText: config.dropzoneText ? config.dropzoneText : 'drag and drop files here or',
       browseFilesButtonText: config.browseFilesButtonText ? config.browseFilesButtonText : 'browse files',

@@ -180,6 +180,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngx-formly-material-extensions"
+    }
+  },
+  "defaultProject": "ngx-formly-material-extensions",
+  "cli": {
+    "analytics": false
+  }
 }

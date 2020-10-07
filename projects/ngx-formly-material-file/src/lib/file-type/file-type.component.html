@@ -17,6 +17,7 @@
 <mat-list>
   <ng-container *ngFor="let subfield of field.fieldGroup; index as i">
     <ngx-formly-material-file-upload [field]="subfield" [uploadUrl]="field.templateOptions.uploadUrl"
+      [numFile]="i" [uploadOnError]="field.templateOptions.uploadOnError" [uploadMax]="field.templateOptions.uploadMax"
       [paramName]="field.templateOptions.paramName" (deleteFile)="onDeleteFile(i)"></ngx-formly-material-file-upload>
   </ng-container>
 </mat-list>

@@ -4,4 +4,6 @@ export interface FileUploadState {
 
   location?: string;
 
+  data?: any;
+
 }

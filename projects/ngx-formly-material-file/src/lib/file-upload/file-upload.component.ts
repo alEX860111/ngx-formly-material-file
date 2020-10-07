@@ -23,12 +23,25 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   @Input()
   paramName: string;
 
+  @Input()
+  numFile: number;
+
+  @Input()
+  validators: number;
+
+  @Input()
+  uploadOnError: boolean = true;
+
+  @Input()
+  uploadMax: number = 15;
+
   @Output()
   deleteFile = new EventEmitter<any>();
 
   progress = 0;
 
   uploadError: string;
+  fakeUploadOnError: boolean = false;
 
   file: File;
 
@@ -42,29 +55,38 @@ export class FileUploadComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.fileIcon = this.uploadUrl ? 'fileType:fileUpload' : 'fileType:file';
+    this.fakeUploadOnError = false;
 
     const selectedFile: SelectedFile = this.field.formControl.value;
     this.file = selectedFile.file;
 
     if (!this.field.formControl.valid || !this.uploadUrl) {
+      this.fileIcon = 'fileType:fileUploadError';
       return;
+    }
+
+    if (this.uploadOnError === false && (this.numFile + 1) > this.uploadMax) {
+      this.fakeUploadOnError = true;
+      this.fileIcon = 'fileType:fileUploadError';
     }
 
     this.field.formControl.setAsyncValidators(this.validateUpload.bind(this));
 
     setTimeout(() => this.field.formControl.updateValueAndValidity(), 0);
 
-    this.progessSubscription = this.uploadService.upload(this.file, this.uploadUrl, this.paramName)
+    this.progessSubscription = this.uploadService.upload(this.file, this.fakeUploadOnError, this.uploadUrl, this.paramName)
       .subscribe(
         uploadState => {
           this.progress = uploadState.progress;
           if (this.progress === 100) {
             this.field.formControl.value.location = uploadState.location;
+            this.field.formControl.value.data = uploadState.data;
           }
         },
         error => {
           this.uploadError = error;
           this.field.formControl.updateValueAndValidity();
+          this.fileIcon = 'fileType:fileUploadError';
         },
         () => {
           this.field.formControl.updateValueAndValidity();
