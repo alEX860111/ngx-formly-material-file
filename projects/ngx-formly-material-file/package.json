@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/alEX860111/ngx-formly-material-file/issues"
   },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
