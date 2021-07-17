@@ -1,19 +1,23 @@
 # NgxFormlyMaterialFile
 
-This library provides a material design file upload for [ngx-formly](https://github.com/ngx-formly/ngx-formly). `ngx-formly-material-file` supports drag and drop and ships with various validators.
+forked from ![ngx-formly-material-file](https://github.com/alEX860111/ngz-formly-material-file).
 
-![ngx-formly-material-file demo](https://github.com/alEX860111/ngx-formly-material-file/raw/master/projects/ngx-formly-material-file/demo/ngx-formly-material-file.gif)
+Upgraded the project to work with angular 12.
+
+This library provides a material design file upload for [ngx-formly](https://github.com/ngx-formly/ngx-formly). `ngz-formly-material-file` supports drag and drop and ships with various validators.
+
+![ngz-formly-material-file demo](https://github.com/sudharsan-gandhi/ngz-formly-material-file/raw/master/projects/ngz-formly-material-file/demo/ngz-formly-material-file.gif)
 
 ## Installation
 
 ### Install NPM Dependencies
-Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly#quick-start) and use `@ngx-formly/material` as the UI library. Finally run `npm i ngx-formly-material-file`.
+Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly#quick-start) and use `@ngx-formly/material` as the UI library. Finally run `npm i ngz-formly-material-file`.
 ### Icons
-`ngx-formly-material-file` uses [material icons](https://material.io/resources/icons/?style=baseline) as a default. Add the following entry to the `assets` array in your `angular.json` to serve the icons:
+`ngz-formly-material-file` uses [material icons](https://material.io/resources/icons/?style=baseline) as a default. Add the following entry to the `assets` array in your `angular.json` to serve the icons:
 ```json
 { 
    "glob":"**/*",
-   "input":"./node_modules/ngx-formly-material-file/assets/svgs",
+   "input":"./node_modules/ngz-formly-material-file/assets/svgs",
    "output":"/assets/svgs/"
 }
 ```
@@ -21,7 +25,7 @@ Follow the quick-start for [ngx-formly](https://github.com/ngx-formly/ngx-formly
 ```typescript
 ...
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngx-formly-material-file';
+import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngz-formly-material-file';
 ...
 
 export const APP_LOCALE_ID = 'en-US';
@@ -44,7 +48,7 @@ export const APP_LOCALE_ID = 'en-US';
 export class AppModule {}
 ```
 ### Use FileTypeComponent
-`ngx-formly-material-file` adds an array of `SelectedFile` to the form model.
+`ngz-formly-material-file` adds an array of `SelectedFile` to the form model.
 ```typescript
 export interface SelectedFile {
 
@@ -59,7 +63,7 @@ If you specify a `uploadUrl` in the `templateOptions`, the files will be uploade
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { FileListValidators, FileValidators } from 'ngx-formly-material-file';
+import { FileListValidators, FileValidators } from 'ngz-formly-material-file';
 
 @Component({
   selector: 'app-root',
@@ -125,7 +129,7 @@ The default validation messages can be overwritten as shown in this example:
 ```typescript
 ...
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngx-formly-material-file';
+import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngz-formly-material-file';
 ...
 
 export const APP_LOCALE_ID = 'en-US';

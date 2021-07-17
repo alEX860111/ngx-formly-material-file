@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "71e1d89c-ddae-448d-82f3-553250a7cb1f"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -33,14 +36,20 @@
               },
               {
                 "glob": "**/*",
-                "input": "./projects/ngx-formly-material-file/src/assets/svgs",
+                "input": "./projects/ngz-formly-material-file/src/assets/svgs",
                 "output": "/assets/svgs/"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -53,7 +62,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -72,7 +80,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -109,7 +118,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "./projects/ngx-formly-material-file/src/assets/svgs",
+                "input": "./projects/ngz-formly-material-file/src/assets/svgs",
                 "output": "/assets/svgs/"
               }
             ],
@@ -146,33 +155,33 @@
         }
       }
     },
-    "ngx-formly-material-file": {
+    "ngz-formly-material-file": {
       "projectType": "library",
-      "root": "projects/ngx-formly-material-file",
-      "sourceRoot": "projects/ngx-formly-material-file/src",
+      "root": "projects/ngz-formly-material-file",
+      "sourceRoot": "projects/ngz-formly-material-file/src",
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-formly-material-file/tsconfig.lib.json",
-            "project": "projects/ngx-formly-material-file/ng-package.json"
+            "tsConfig": "projects/ngz-formly-material-file/tsconfig.lib.json",
+            "project": "projects/ngz-formly-material-file/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-formly-material-file/src/test.ts",
-            "tsConfig": "projects/ngx-formly-material-file/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-formly-material-file/karma.conf.js"
+            "main": "projects/ngz-formly-material-file/src/test.ts",
+            "tsConfig": "projects/ngz-formly-material-file/tsconfig.spec.json",
+            "karmaConfig": "projects/ngz-formly-material-file/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-formly-material-file/tsconfig.lib.json",
-              "projects/ngx-formly-material-file/tsconfig.spec.json"
+              "projects/ngz-formly-material-file/tsconfig.lib.json",
+              "projects/ngz-formly-material-file/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

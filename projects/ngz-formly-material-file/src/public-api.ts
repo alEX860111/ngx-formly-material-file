@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngx-formly-material-file
+ * Public API Surface of ngz-formly-material-file
  */
 
 export * from './lib/file-input/selected-file';

@@ -7,7 +7,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-formly-material-file": [
-        "dist/ngx-formly-material-file"
+      "ngz-formly-material-file": [
+        "dist/ngz-formly-material-file"
       ],
-      "ngx-formly-material-file/*": [
-        "dist/ngx-formly-material-file/*"
+      "ngz-formly-material-file/*": [
+        "dist/ngz-formly-material-file/*"
       ]
     }
   },

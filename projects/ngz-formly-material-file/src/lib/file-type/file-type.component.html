@@ -4,7 +4,7 @@
   <ng-container *ngIf="field.templateOptions.required">*</ng-container>
 </div>
 
-<ngx-formly-material-file-input (selectFiles)="onSelectFiles($event)"></ngx-formly-material-file-input>
+<ngz-formly-material-file-input (selectFiles)="onSelectFiles($event)"></ngz-formly-material-file-input>
 
 <div *ngIf="!field.formControl.touched || field.formControl.valid" class="label label-valid">{{field.templateOptions.description}}
 </div>
@@ -16,7 +16,7 @@
 
 <mat-list>
   <ng-container *ngFor="let subfield of field.fieldGroup; index as i">
-    <ngx-formly-material-file-upload [field]="subfield" [uploadUrl]="field.templateOptions.uploadUrl"
-      [paramName]="field.templateOptions.paramName" (deleteFile)="onDeleteFile(i)"></ngx-formly-material-file-upload>
+    <ngz-formly-material-file-upload [field]="subfield" [uploadUrl]="field.templateOptions.uploadUrl"
+      [paramName]="field.templateOptions.paramName" (deleteFile)="onDeleteFile(i)"></ngz-formly-material-file-upload>
   </ng-container>
 </mat-list>
