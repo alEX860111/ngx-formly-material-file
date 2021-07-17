@@ -49,7 +49,7 @@ export class FileTypeModule {
     matIconRegistry.addSvgIconInNamespace('fileType', 'fileRemove', sanitizer.bypassSecurityTrustResourceUrl('assets/svgs/clear-24px.svg'));
   }
 
-  static forRoot(config: FileTypeConfig = {}): ModuleWithProviders {
+  static forRoot(config: FileTypeConfig = {}): ModuleWithProviders<FileTypeModule> {
     const actualConfig: FileTypeConfig = {
       dropzoneText: config.dropzoneText ? config.dropzoneText : 'drag and drop files here or',
       browseFilesButtonText: config.browseFilesButtonText ? config.browseFilesButtonText : 'browse files',

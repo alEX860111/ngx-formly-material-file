@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
 import { MatIcon, MatIconModule } from '@angular/material';
 import { of } from 'rxjs';
@@ -25,7 +25,7 @@ describe('FileUploadComponent', () => {
 
   let fixture: ComponentFixture<FileUploadComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     fileUploadService = jasmine.createSpyObj('fileUploadService', ['upload']);
     TestBed.configureTestingModule({
       imports: [FileTypeModule.forRoot({})]
