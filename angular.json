@@ -36,7 +36,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "./projects/ngx-formly-material-file/src/assets/svgs",
+                "input": "./projects/ngz-formly-material-file/src/assets/svgs",
                 "output": "/assets/svgs/"
               }
             ],
@@ -118,7 +118,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "./projects/ngx-formly-material-file/src/assets/svgs",
+                "input": "./projects/ngz-formly-material-file/src/assets/svgs",
                 "output": "/assets/svgs/"
               }
             ],
@@ -155,33 +155,33 @@
         }
       }
     },
-    "ngx-formly-material-file": {
+    "ngz-formly-material-file": {
       "projectType": "library",
-      "root": "projects/ngx-formly-material-file",
-      "sourceRoot": "projects/ngx-formly-material-file/src",
+      "root": "projects/ngz-formly-material-file",
+      "sourceRoot": "projects/ngz-formly-material-file/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-formly-material-file/tsconfig.lib.json",
-            "project": "projects/ngx-formly-material-file/ng-package.json"
+            "tsConfig": "projects/ngz-formly-material-file/tsconfig.lib.json",
+            "project": "projects/ngz-formly-material-file/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-formly-material-file/src/test.ts",
-            "tsConfig": "projects/ngx-formly-material-file/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-formly-material-file/karma.conf.js"
+            "main": "projects/ngz-formly-material-file/src/test.ts",
+            "tsConfig": "projects/ngz-formly-material-file/tsconfig.spec.json",
+            "karmaConfig": "projects/ngz-formly-material-file/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-formly-material-file/tsconfig.lib.json",
-              "projects/ngx-formly-material-file/tsconfig.spec.json"
+              "projects/ngz-formly-material-file/tsconfig.lib.json",
+              "projects/ngz-formly-material-file/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

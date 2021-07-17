@@ -7,7 +7,7 @@ import { FileUploadService } from './file-upload.service';
 import { SelectedFile } from '../file-input/selected-file';
 
 @Component({
-  selector: 'ngx-formly-material-file-upload',
+  selector: 'ngz-formly-material-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
   providers: [FileUploadService]

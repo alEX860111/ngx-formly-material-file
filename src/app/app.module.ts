@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
-import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngx-formly-material-file';
+import { FileTypeComponent, FileTypeModule, FileTypeValidationMessages } from 'ngz-formly-material-file';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 

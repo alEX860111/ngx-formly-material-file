@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { FileListValidators, FileValidators } from 'ngx-formly-material-file';
+import { FileListValidators, FileValidators } from 'ngz-formly-material-file';
 
 @Component({
   selector: 'app-root',

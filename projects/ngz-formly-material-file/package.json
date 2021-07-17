@@ -1,6 +1,6 @@
 {
-  "name": "ng12x-formly-material-file",
-  "description": "material design file upload for ngx-formly",
+  "name": "ngz-formly-material-file",
+  "description": "material design file upload for ngx-formly with angular 12 support. refer original https://github.com/alEX860111/ngx-formly-material-file",
   "license": "MIT",
   "keywords": [
     "material",
@@ -10,12 +10,13 @@
     "ngx-formly",
     "form",
     "drag and drop",
-    "validation"
+    "validation",
+    "angular12"
   ],
   "version": "1.0.0",
-  "homepage": "https://github.com/alEX860111/ngx-formly-material-file",
+  "homepage": "https://github.com/sudharsan-gandhi/ngz-formly-material-file",
   "bugs": {
-    "url": "https://github.com/alEX860111/ngx-formly-material-file/issues"
+    "url": "https://github.com/sudharsan-gandhi/ngz-formly-material-file/issues"
   },
   "dependencies": {
     "tslib": "^2.0.0"
