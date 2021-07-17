@@ -1,5 +1,5 @@
 {
-  "name": "ngx-formly-material-file",
+  "name": "ng12x-formly-material-file",
   "description": "material design file upload for ngx-formly",
   "license": "MIT",
   "keywords": [
@@ -21,11 +21,11 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14",
-    "@angular/cdk": "~8.2.3",
-    "@angular/material": "^8.2.3",
-    "@ngx-formly/core": "^5.5.6",
-    "@ngx-formly/material": "^5.5.6"
+    "@angular/common": "~12.1.2",
+    "@angular/core": "~12.1.2",
+    "@angular/cdk": "~12.1.2",
+    "@angular/material": "~12.1.2",
+    "@ngx-formly/core": "^5.10.22",
+    "@ngx-formly/material": "^5.10.22"
   }
 }
