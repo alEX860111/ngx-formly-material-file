@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "ngx-formly-material-file",
+      "ngz-formly-material-file",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "ngx-formly-material-file",
+      "ngz-formly-material-file",
       "kebab-case"
     ]
   }
